@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "ie.pfai.app"
+        version   = "0.0.1"
+        versionCode = "1" >
+
+    <name>PFA Ireland App</name>
+
+    <description>
+        PFAI application
+    </description>
+
+    <author href="http://pfai.ie" email="strtbyrne@gmail.com">
+        Stuart Byrne
+    </author>
+    
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+	
+	<preference name="permissions"                value="none"/>
+
+    <preference name="phonegap-version"           value="2.9.0" />          <!-- all: current version of PhoneGap -->
+    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
+    <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
+    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
+    <preference name="prerendered-icon"           value="false" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
+    <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
+    <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
+    <preference name="exit-on-suspend"            value="true" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
+    <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+    <preference name="auto-hide-splash-screen"    value="false" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
+    <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
+    <preference name="android-minSdkVersion"      value="7" />             <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+    <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+	<preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableLocation" value="false" /><!-- DEPRECATED -->
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value=".25" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="KeyboardShrinksView" value="false" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="SuppressesIncrementalRendering" value="true" />
+    <preference name="TopActivityIndicator" value="gray" />
+    
+    <!-- ANDROID PREFERENCES -->
+        
+    <preference name="android-minSdkVersion" value="7" /> <!-- minimum Android 2.1 -->
+    <!-- <preference name="android-maxSdkVersion" value="18" /> maximum Android 4.3 -->
+    <preference name="android-installLocation" value="auto" />
+    <preference name="SplashScreenDelay" value="6000"/>
+    <preference name="load-url-timeout" value="10000" />
+
+    <icon src="icon.png" />
+    <icon src="icons/ios/icon.png"            gap:platform="ios"        width="57" height="57" />
+    <icon src="icons/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
+    <icon src="icons/ios/icon_at_2x.png"         gap:platform="ios"        width="114" height="114" />
+    <icon src="icons/ios/icon-72_at_2x.png"         gap:platform="ios"        width="144" height="144" />
+    <icon src="icons/winphone/icon.png" gap:platform="winphone" />
+    <icon src="icons/winphone/titleicon.png" gap:platform="winphone" gap:role="background" />
+    
+    <gap:splash src="splash/ios/Default.png"    gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="splash/ios/Default_at_2x.png" gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="splash/ios/Default_iphone5.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="splash/ios/Default-Landscape.png" gap:platform="ios" width="1024" height="748" />
+    <gap:splash src="splash/ios/Default-Portrait.png" gap:platform="ios" width="768" height="1004" />
+    <!-- retina iPad support: PhoneGap 2.5.0+ only -->
+    <gap:splash src="splash/ios/Default-Landscape_at_2x.png" gap:platform="ios" width="2048" height="1496" />
+    <gap:splash src="splash/ios/Default-Portrait_at_2x.png" gap:platform="ios" width="1536" height="2008" />
+    
+    <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    
+    <gap:splash src="splash/winphone/splash.jpg" gap:platform="winphone" />
+    
+    <!--Access all domains-->
+    
+    <access origin="*" subdomains="true" />
+
+	 <plugins>
+        <plugin name="Device" value="CDVDevice" />
+        <plugin name="Logger" value="CDVLogger" />
+        <plugin name="Compass" value="CDVLocation" />
+        <plugin name="Accelerometer" value="CDVAccelerometer" />
+        <plugin name="Camera" value="CDVCamera" />
+        <plugin name="NetworkStatus" value="CDVConnection" />
+        <plugin name="Contacts" value="CDVContacts" />
+        <plugin name="Echo" value="CDVEcho" />
+        <plugin name="File" value="CDVFile" />
+        <plugin name="FileTransfer" value="CDVFileTransfer" />
+        <plugin name="Geolocation" value="CDVLocation" />
+        <plugin name="Notification" value="CDVNotification" />
+        <plugin name="Media" value="CDVSound" />
+        <plugin name="Capture" value="CDVCapture" />
+        <plugin name="SplashScreen" value="CDVSplashScreen" />
+        <plugin name="Battery" value="CDVBattery" />
+        <plugin name="Globalization" value="CDVGlobalization" />
+        <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+    </plugins>
+</widget>
