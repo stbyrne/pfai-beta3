@@ -20,7 +20,7 @@ function jsonTitles(holdData){
         /*url: 'content.json',*/
         jsonpCallback: 'jsonCallback',
         dataType: 'jsonp',
-        timeout: 5000,
+        timeout: 10000,
         success: function(data) {
             console.log(data);
             holdData(data);
@@ -192,19 +192,19 @@ jsonTitles(function(content){
 
 /////////////Apply click events to communication buttons on homepage//////////////
 
-$('#mail a').on('click', function(){
+$('#mail').on('click', function(){
     $(this).attr('href', 'mailto:info@pfai.ie');
     });
 
-$('#call a').on('click', function(){
+$('#call').on('click', function(){
     $(this).attr('href', 'tel:0035318999350');
     });
 
-$('#twitter a').on('click', function(){
+$('#twitter').on('click', function(){
 window.open('https://twitter.com/PFAIOfficial');
     });
 
-$('#face a').on('click', function(){
+$('#face').on('click', function(){
 window.open('https://www.facebook.com/pages/PFAIOfficial/137333183069003');
     });
 
