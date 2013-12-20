@@ -4,7 +4,7 @@ var app = {
     pagetextcontent : [],
     staticlist : []
 
-}
+};
 
 $(function(){
 
@@ -35,7 +35,6 @@ function jsonTitles(holdData){
                 url: 'content.json',
                 jsonpCallback: 'jsonCallback',
                 dataType: 'jsonp',
-                timeout: 5000,
                 success: function(data) {
                     console.log(data);
                     holdData(data);
