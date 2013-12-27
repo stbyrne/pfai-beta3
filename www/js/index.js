@@ -20,7 +20,7 @@ function jsonTitles(holdData){
         /*url: 'content.json',*/
         jsonpCallback: 'jsonCallback',
         dataType: 'jsonp',
-        timeout: 10000,
+        timeout: 5000,
         success: function(data) {
             console.log(data);
             holdData(data);
@@ -35,6 +35,7 @@ function jsonTitles(holdData){
                 url: 'content.json',
                 jsonpCallback: 'jsonCallback',
                 dataType: 'jsonp',
+                timeout: 5000,
                 success: function(data) {
                     console.log(data);
                     holdData(data);
@@ -174,7 +175,7 @@ jsonTitles(function(content){
 
  if( /Chrome|Safari|IE/i.test(navigator.userAgent) ) {
      $('#com a').on('mousedown', function(){
-         $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+         $(this).css('background', 'rgba(209, 209, 209, 0.8)');
             }).on('mouseup', function(){
                 $(this).css('background', 'rgba(20, 20, 20, 0.8)');
                 });
