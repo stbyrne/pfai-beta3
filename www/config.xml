@@ -16,7 +16,7 @@
     <author href="http://pfai.ie" email="strtbyrne@gmail.com">
         Stuart Byrne
     </author>
-    
+    <content src="index.html" />
     <gap:platform name="ios" />
     <gap:platform name="android" />
     <gap:platform name="winphone" />
@@ -59,7 +59,7 @@
     <preference name="android-minSdkVersion" value="7" /> <!-- minimum Android 2.1 -->
     <!-- <preference name="android-maxSdkVersion" value="18" /> maximum Android 4.3 -->
     <preference name="android-installLocation" value="auto" />
-    <preference name="SplashScreenDelay" value="6000"/>
+    <preference name="SplashScreenDelay" value="10000"/>
     <preference name="load-url-timeout" value="10000" />
 
     <icon src="icon.png" />
@@ -85,6 +85,8 @@
     <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
     
     <gap:splash src="splash/winphone/splash.jpg" gap:platform="winphone" />
+    
+    <gap:plugin name="org.apache.cordova.splashscreen" />
     
     <!--Access all domains-->
     
