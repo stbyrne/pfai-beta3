@@ -532,7 +532,7 @@ span .ui-icon .ui-icon-plus{
     
     /* Communications footer on homepage*/
     #com div:nth-child(1){
-        display: none;   
+        /*display: none;*/   
     }
     
     #com{
