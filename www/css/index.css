@@ -36,6 +36,13 @@
     margin-right: 5px;
     /*height: 15px;*/
 }
+.menuFade{
+    opacity: 0.4!important;
+}
+.menuAction{
+    left: 80px!important;
+    -webkit-transition: all 0.3s ease-out!important;
+}
 
 #menuNav.ui-btn-active{
     background: none!important;

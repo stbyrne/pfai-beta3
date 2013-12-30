@@ -132,8 +132,9 @@ jsonTitles(function(content){
                                                                         })))
                                                     }))
                                         }));
+
             
-        });//////End of Section Loop//////
+});//////End of Section Loop//////
     
     
 ////////////////////Re-arranging the arrays for static text content i.e removing 'transfer list' and 'news' sections/////////////////////
@@ -174,17 +175,17 @@ jsonTitles(function(content){
 /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){};*/
 
  if( /Chrome|Safari|IE/i.test(navigator.userAgent) ) {
-     $('#com a').on('mousedown', function(){
-         $(this).css('background', 'rgba(209, 209, 209, 0.8)');
+     $('#com div a').on('mousedown', function(){
+         $(this).css({'background': 'rgba(209, 209, 209, 0.8)', 'color': '#000'});
             }).on('mouseup', function(){
-                $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+                $(this).css({'background': 'rgba(20, 20, 20, 0.8)', 'color': 'rgb(204, 204, 204)'});
                 });
            
         }else{
-            $('#com a').on('touchstart', function(){
-         $(this).css('background', 'rgba(129, 129, 129, 0.8)');
+            $('#com div a').on('touchstart', function(){
+         $(this).css({'background': 'rgba(209, 209, 209, 0.8)', 'color': '#000'});
             }).on('touchend', function(){
-                $(this).css('background', 'rgba(20, 20, 20, 0.8)');
+                $(this).css({'background': 'rgba(20, 20, 20, 0.8)', 'color': 'rgb(204, 204, 204)'});
                 });
             
         }
@@ -399,7 +400,7 @@ $(app.pagelist).each(function(i){
     newspage.attr('class', 'app');
         
     });
-    
+   
 }
 
 /*},4000);*/
@@ -442,7 +443,35 @@ $(app.pagelist).each(function(i){
     
 //////////////////////End Maps//////////////////////////
 
-
+//////////////////Add interactive behaviour to menu & home button///////////////////////
+    
+    var $menu = $('#menuNav');
+    
+    $menu.on('mousedown', function(){
+        $(this).addClass('menuFade');
+        
+    }).on('mouseup', function(){
+        $(this).removeClass('menuFade');
+        $(this).addClass('menuAction');
+        $(this).fadeOut();
+        setTimeout(function(){
+            $menu.removeClass('menuAction');
+            $menu.fadeIn(1000);
+        }, 300);
+    });
+    
+    var $home = $('#homeNav');
+    
+    $home.on('touchstart', function(){
+        $(this).addClass('menuFade');
+        
+    }).on('touchend', function(){
+        $(this).removeClass('menuFade');
+        $(this).fadeOut();
+        setTimeout(function(){
+            $home.fadeIn(1000);
+        }, 300);
+    });
 
 
 
