@@ -447,17 +447,17 @@ $(app.pagelist).each(function(i){
     
     var $menu = $('#menuNav');
     
-    $menu.on('mousedown', function(){
+    $menu.on('touchstart', function(){
         $(this).addClass('menuFade');
         
-    }).on('mouseup', function(){
+    }).on('touchend', function(){
         $(this).removeClass('menuFade');
-        $(this).addClass('menuAction');
-        $(this).fadeOut();
+        
+        $(this).fadeOut(600);
         setTimeout(function(){
-            $menu.removeClass('menuAction');
-            $menu.fadeIn(1000);
-        }, 300);
+            
+            $menu.fadeIn(300);
+        }, 600);
     });
     
     var $home = $('#homeNav');
@@ -467,10 +467,10 @@ $(app.pagelist).each(function(i){
         
     }).on('touchend', function(){
         $(this).removeClass('menuFade');
-        $(this).fadeOut();
+        $(this).fadeOut(600);
         setTimeout(function(){
-            $home.fadeIn(1000);
-        }, 300);
+            $home.fadeIn(300);
+        }, 600);
     });
 
 
