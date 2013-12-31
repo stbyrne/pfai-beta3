@@ -453,11 +453,11 @@ $(app.pagelist).each(function(i){
     }).on('touchend', function(){
         $(this).removeClass('menuFade');
         
-        $(this).fadeOut(300);
+        $(this).fadeOut(200);
         setTimeout(function(){
             
             $menu.fadeIn(200);
-        }, 300);
+        }, 200);
     });
     
     var $home = $('#homeNav');
@@ -467,10 +467,10 @@ $(app.pagelist).each(function(i){
         
     }).on('touchend', function(){
         $(this).removeClass('menuFade');
-        $(this).fadeOut(300);
+        $(this).fadeOut(200);
         setTimeout(function(){
             $home.fadeIn(200);
-        }, 300);
+        }, 200);
     });
 
 
