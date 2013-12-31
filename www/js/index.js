@@ -455,19 +455,10 @@ setTimeout(function(){
         
     }).on('touchend', function(){
         $(this).removeClass('menuFade');
-<<<<<<< HEAD
         $(this).fadeOut(200);
         setTimeout(function(){
             $menu.fadeIn(300);
         }, 300);
-=======
-        
-        $(this).fadeOut(200);
-        setTimeout(function(){
-            
-            $menu.fadeIn(200);
-        }, 200);
->>>>>>> e1ad82b134a9ca1d8094a436f082a84d079a9d8c
     });
     
     var $home = $('#homeNav');
@@ -479,13 +470,8 @@ setTimeout(function(){
         $(this).removeClass('menuFade');
         $(this).fadeOut(200);
         setTimeout(function(){
-<<<<<<< HEAD
             $home.fadeIn(300);
         }, 300);
-=======
-            $home.fadeIn(200);
-        }, 200);
->>>>>>> e1ad82b134a9ca1d8094a436f082a84d079a9d8c
     });
     
 }, 5000);
