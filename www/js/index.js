@@ -7,8 +7,9 @@ var app = {
 };
 
 $(function(){
-
-   
+    
+FastClick.attach(document.body);
+  
    
 ///////////////////Ajax jsonp function to get data from json file////////////////
 		
@@ -445,18 +446,18 @@ $(app.pagelist).each(function(i){
 
 //////////////////Add interactive behaviour to menu & home button///////////////////////
     
+setTimeout(function(){
+    
     var $menu = $('#menuNav');
     
-    $menu.on('mousedown', function(){
+    $menu.on('touchstart', function(){
         $(this).addClass('menuFade');
         
-    }).on('mouseup', function(){
+    }).on('touchend', function(){
         $(this).removeClass('menuFade');
-        $(this).addClass('menuAction');
-        $(this).fadeOut();
+        $(this).fadeOut(200);
         setTimeout(function(){
-            $menu.removeClass('menuAction');
-            $menu.fadeIn(1000);
+            $menu.fadeIn(300);
         }, 300);
     });
     
@@ -467,11 +468,13 @@ $(app.pagelist).each(function(i){
         
     }).on('touchend', function(){
         $(this).removeClass('menuFade');
-        $(this).fadeOut();
+        $(this).fadeOut(200);
         setTimeout(function(){
-            $home.fadeIn(1000);
+            $home.fadeIn(300);
         }, 300);
     });
+    
+}, 5000);
 
 
 

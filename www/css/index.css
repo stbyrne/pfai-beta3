@@ -39,11 +39,10 @@
 .menuFade{
     opacity: 0.4!important;
 }
-.menuAction{
+/*.menuAction{
     left: 80px!important;
     -webkit-transition: all 0.3s ease-out!important;
-}
-
+}*/
 #menuNav.ui-btn-active{
     background: none!important;
     border: none!important;
