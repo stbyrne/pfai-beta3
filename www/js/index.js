@@ -97,7 +97,8 @@ jsonTitles(function(content){
             
         homeList.append(
             $('<li />', {
-                'data-theme': 'c'
+                'data-theme': 'c',
+                'data-icon': 'arrow-r'
             }).html('<a href="#' + pageid + '"><span class="icon-' + pageid + '">' + pagetitle + '</span></a>')).listview('refresh');
             
             
@@ -339,7 +340,8 @@ function initiateList(){
                         $('<li />', {
                             /*'data-theme': 'c',*/
                             'data-icon': 'false',
-                            'class': 'ui-icon-alt ui-icon-nodisc'
+                            'class': 'ui-icon-alt ui-icon-nodisc',
+                            'data-icon': 'arrow-r'
                         }).html('<a href="#' + $articleid + '"><img src="images/news/' + $image + '"><h2>' + $headline + '</h2><p>' + $text +'</p><p class="ui-li-aside">' + $articledate + '</p></a>'));
     
 
@@ -390,7 +392,8 @@ $(app.pagelist).each(function(i){
            
             $('[data-role="panel"] ul:not(#homeList)').append(
                         $('<li />', {
-                            'data-theme': 'c'
+                            'data-theme': 'c',
+                            'data-icon': 'arrow-r'
                         }).html('<a href="#' + app.pageidlist[i] +'"><span class="icon-' + app.pageidlist[i] + '">' + this + '</span></a>'));
                
     });

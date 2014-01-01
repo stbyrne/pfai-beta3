@@ -2325,6 +2325,54 @@ $.mobile.document.bind( "pagecreate create", function( e ) {
 
 
 
+(function( $, undefined ) {
+
+$.fn.grid = function( options ) {
+	return this.each(function() {
+
+		var $this = $( this ),
+			o = $.extend({
+				grid: null
+			}, options ),
+			$kids = $this.children(),
+			gridCols = { solo:1, a:2, b:3, c:4, d:5 },
+			grid = o.grid,
+			iterator;
+
+			if ( !grid ) {
+				if ( $kids.length <= 5 ) {
+					for ( var letter in gridCols ) {
+						if ( gridCols[ letter ] === $kids.length ) {
+							grid = letter;
+						}
+					}
+				} else {
+					grid = "a";
+					$this.addClass( "ui-grid-duo" );
+				}
+			}
+			iterator = gridCols[grid];
+
+		$this.addClass( "ui-grid-" + grid );
+
+		$kids.filter( ":nth-child(" + iterator + "n+1)" ).addClass( "ui-block-a" );
+
+		if ( iterator > 1 ) {
+			$kids.filter( ":nth-child(" + iterator + "n+2)" ).addClass( "ui-block-b" );
+		}
+		if ( iterator > 2 ) {
+			$kids.filter( ":nth-child(" + iterator + "n+3)" ).addClass( "ui-block-c" );
+		}
+		if ( iterator > 3 ) {
+			$kids.filter( ":nth-child(" + iterator + "n+4)" ).addClass( "ui-block-d" );
+		}
+		if ( iterator > 4 ) {
+			$kids.filter( ":nth-child(" + iterator + "n+5)" ).addClass( "ui-block-e" );
+		}
+	});
+};
+})( jQuery );
+
 
 (function( $, undefined ) {
 		var path, documentBase, $base, dialogHashKey = "&ui-state=dialog";
@@ -5617,48 +5665,16 @@ $.mobile.getMaxScrollForTransition = $.mobile.getMaxScrollForTransition || defau
 
 }( jQuery ));
 
-(function( $, window ) {
+/*
+* fallback transition for slidefade in non-3D supporting browsers (which tend to handle complex transitions poorly in general
+*/
 
-	$.mobile.iosorientationfixEnabled = true;
+(function( $, window, undefined ) {
 
-	// This fix addresses an iOS bug, so return early if the UA claims it's something else.
-	var ua = navigator.userAgent;
-	if( !( /iPhone|iPad|iPod/.test( navigator.platform ) && /OS [1-5]_[0-9_]* like Mac OS X/i.test( ua ) && ua.indexOf( "AppleWebKit" ) > -1 ) ){
-		$.mobile.iosorientationfixEnabled = false;
-		return;
-	}
+// Set the slide transitions's fallback to "fade"
+$.mobile.transitionFallbacks.slidefade = "fade";
 
-	var zoom = $.mobile.zoom,
-		evt, x, y, z, aig;
-
-	function checkTilt( e ) {
-		evt = e.originalEvent;
-		aig = evt.accelerationIncludingGravity;
-
-		x = Math.abs( aig.x );
-		y = Math.abs( aig.y );
-		z = Math.abs( aig.z );
-
-		// If portrait orientation and in one of the danger zones
-		if ( !window.orientation && ( x > 7 || ( ( z > 6 && y < 8 || z < 8 && y > 6 ) && x > 5 ) ) ) {
-				if ( zoom.enabled ) {
-					zoom.disable();
-				}
-		}	else if ( !zoom.enabled ) {
-				zoom.enable();
-		}
-	}
-
-	$.mobile.document.on( "mobileinit", function(){
-		if( $.mobile.iosorientationfixEnabled ){
-			$.mobile.window
-				.bind( "orientationchange.iosorientationfix", zoom.enable )
-				.bind( "devicemotion.iosorientationfix", checkTilt );
-		}
-	});
-
-}( jQuery, this ));
-
+})( jQuery, this );
 (function( $, undefined ) {
 
 $.mobile.behaviors.addFirstLastClasses = {
@@ -6701,6 +6717,66 @@ $.mobile.document.delegate( "ul,ol", "listviewcreate", function() {
 	};
 
 	afterListviewRefresh();
+});
+
+})( jQuery );
+
+(function( $, undefined ) {
+
+$.widget( "mobile.navbar", $.mobile.widget, {
+	options: {
+		iconpos: "top",
+		grid: null,
+		initSelector: ":jqmData(role='navbar')"
+	},
+
+	_create: function() {
+
+		var $navbar = this.element,
+			$navbtns = $navbar.find( "a" ),
+			iconpos = $navbtns.filter( ":jqmData(icon)" ).length ?
+									this.options.iconpos : undefined;
+
+		$navbar.addClass( "ui-navbar ui-mini" )
+			.attr( "role", "navigation" )
+			.find( "ul" )
+			.jqmEnhanceable()
+			.grid({ grid: this.options.grid });
+
+		$navbtns.buttonMarkup({
+			corners:	false,
+			shadow:		false,
+			inline:     true,
+			iconpos:	iconpos
+		});
+
+		$navbar.delegate( "a", "vclick", function( event ) {
+			// ui-btn-inner is returned as target
+			var target = $( event.target ).is( "a" ) ? $( this ) : $( this ).parent( "a" );
+			
+			if ( !target.is( ".ui-disabled, .ui-btn-active" ) ) {
+				$navbtns.removeClass( $.mobile.activeBtnClass );
+				$( this ).addClass( $.mobile.activeBtnClass );
+				
+				// The code below is a workaround to fix #1181
+				var activeBtn = $( this );
+				
+				$( document ).one( "pagehide", function() {
+					activeBtn.removeClass( $.mobile.activeBtnClass );
+				});
+			}
+		});
+
+		// Buttons in the navbar with ui-state-persist class should regain their active state before page show
+		$navbar.closest( ".ui-page" ).bind( "pagebeforeshow", function() {
+			$navbtns.filter( ".ui-state-persist" ).addClass( $.mobile.activeBtnClass );
+		});
+	}
+});
+
+//auto self-init widgets
+$.mobile.document.bind( "pagecreate create", function( e ) {
+	$.mobile.navbar.prototype.enhanceWithin( e.target );
 });
 
 })( jQuery );
