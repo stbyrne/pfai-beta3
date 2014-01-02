@@ -425,7 +425,7 @@ $(app.pagelist).each(function(i){
             drawMap(defaultLatLng);  // Failed to find location, show default map
         }
         // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 10000});
     } else {
         drawMap(defaultLatLng);  // No geolocation support, show default map
     }
@@ -437,10 +437,26 @@ $(app.pagelist).each(function(i){
         };
         var map = new google.maps.Map(document.getElementById("mapsContent"), myOptions);
         // Add an overlay to the map of current lat/lng
+        // Add custom image to map
+        var image = 'images/loc.png';
         var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: "You are here!"
+        });
+        var marker2 = new google.maps.Marker({
             position: defaultLatLng,
             map: map,
-            title: "We are here!"
+            icon: image,
+            title: "PFA Ireland Offices"
+        });
+        
+        google.maps.event.addListener(marker, 'click', function() {
+            alert('You are here');
+        });
+        
+        google.maps.event.addListener(marker2, 'click', function() {
+            alert('PFA Ireland Offices');
         });
     }
 });
