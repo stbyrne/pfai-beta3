@@ -447,7 +447,7 @@ span .ui-icon .ui-icon-plus{
 
 
 /* Second breakpoint is 45em (720px). */
-@media ( min-width: 45em ) {
+@media only screen and ( min-width: 45em ) {
     
     .feature img, .static-image{
     max-width: 60%;
@@ -533,7 +533,7 @@ span .ui-icon .ui-icon-plus{
 
 
 /* third breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
-@media ( min-width: 48em ) {
+@media only screen and (min-width: 48em) {
     
     /* Communications footer on homepage*/
     #com div.hide{
@@ -652,7 +652,118 @@ span .ui-icon .ui-icon-plus{
         background-position: 0 -253px;
     }
 }
-/* Fourth breakpoint. 4 column layout. Tiles will be 250x250 pixels again at the breakpoint. */
+/* Samsung Galaxy S3*/
+@media only screen and (min-width: 719px) and (max-width: 721px) and (-webkit-min-device-pixel-ratio : 2),
+only screen and (min-device-pixel-ratio : 2) {
+    
+    .ui-header{
+        height: 100px;  
+    }
+    #mainTitle {
+    font-size: 2em!important;
+    }
+    #sectionTitle {
+    font-size: 1.8em!important;
+    }
+    #left-panel p {
+    margin: 26px auto;
+    }
+    #homeList li a.ui-link-inherit{
+    padding: 1em 15px!important;
+    }
+    
+    #menuNav, #homeNav, #helpNav{
+    text-decoration: none;
+    font-size: 2.4em;
+    }
+    #menuNav img, #homeNav img{
+        max-height: 1.5em;
+        margin: 0 5px;
+        /*position: relative;*/
+    }
+    
+    #left-panel span{
+    font-size: 1.2em;
+    }
+    #left-panel p{
+    font-size: 2.4em;     
+    }
+    
+    .feature img{
+    width: 50%;
+    }
+    #com{
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    z-index: 100;
+    }
+    #com div a{
+    height: 120px;
+    width: 25%;
+    
+    }
+    #com div a img{
+    margin: 20px 30% 0;
+    max-width: 60%;
+    }
+    #com div a span{
+    font-size: 1.2em;
+    margin: 15px 30px;
+    }
+    /*Icons*/
+
+    .icon-transferlist, .icon-news, .icon-membership, .icon-coaching, .icon-health, .icon-career, .icon-antidoping, .icon-tax, .icon-transfer, .icon-betting, .icon-agency, .icon-maps{
+    background-image: url('../images/list-icons/list-icons.png');
+    background-repeat: no-repeat;
+    background-size: 23px;
+    padding-left: 23px;
+    
+    }
+    .icon-transferlist{
+       background-position: 0 0;    
+    }
+    .icon-news{
+        background-position: 0 -23px;
+           
+    }
+    .icon-membership{
+        background-position: 0 -46px;
+      
+    }
+    .icon-coaching{
+        background-position: 0 -69px;
+    }
+    .icon-health{
+        background-position: 0 -92px;
+    }
+    .icon-career{
+        background-position: 0 -115px;
+    }
+    .icon-antidoping{
+        background-position: 0 -138px;
+    }
+    .icon-tax{
+        background-position: 0 -161px;
+    }
+    .icon-transfer{
+        background-position: 0 -184px;
+    }
+    .icon-betting{
+        background-position: 0 -207px;
+    }
+    .icon-agency{
+        background-position: 0 -230px;
+    }
+    .icon-maps{
+        background-position: 0 -253px;
+    }
+}
+
+
+/* Fifth breakpoint. 4 column layout. Tiles will be 250x250 pixels again at the breakpoint. */
 @media all and (min-width: 1020px){
     
 }
