@@ -97,9 +97,8 @@ jsonTitles(function(content){
             
         homeList.append(
             $('<li />', {
-                'data-theme': 'c',
-                'data-icon': 'arrow-r'
-            }).html('<a href="#' + pageid + '"><span class="icon-' + pageid + '">' + pagetitle + '</span></a>')).listview('refresh');
+                'data-theme': 'c'
+            }).html('<a href="#' + pageid + '"><span class="icon-' + pageid + '">&nbsp;' + pagetitle + '</span></a><span class="arrow-right"></span>')).listview('refresh');
             
             
 ///////////////////Creates the individual pages for each section////////////////
@@ -176,21 +175,22 @@ jsonTitles(function(content){
 
 /*if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){};*/
 
- if( /Chrome|Safari|IE/i.test(navigator.userAgent) ) {
+ /*if( /Chrome|Safari|IE/i.test(navigator.userAgent) ) {*/
+
      $('#com div a').on('mousedown', function(){
-         $(this).css({'background': 'rgba(209, 209, 209, 0.8)', 'color': '#000'});
+         $(this).css({'background': 'rgba(95,95,95,.75)', 'color': '#fff'});
             }).on('mouseup', function(){
-                $(this).css({'background': 'rgba(20, 20, 20, 0.8)', 'color': 'rgb(204, 204, 204)'});
+                $(this).css({'background': 'rgba(255, 255, 255, .75)', 'color': 'rgba(95,95,95,.75)'});
                 });
            
-        }else{
+        /*}else{
             $('#com div a').on('touchstart', function(){
          $(this).css({'background': 'rgba(209, 209, 209, 0.8)', 'color': '#000'});
             }).on('touchend', function(){
                 $(this).css({'background': 'rgba(20, 20, 20, 0.8)', 'color': 'rgb(204, 204, 204)'});
                 });
             
-        }
+        }*/
 
 
 /////////////Apply click events to communication buttons on homepage//////////////
@@ -340,9 +340,8 @@ function initiateList(){
                         $('<li />', {
                             /*'data-theme': 'c',*/
                             'data-icon': 'false',
-                            'class': 'ui-icon-alt ui-icon-nodisc',
-                            'data-icon': 'arrow-r'
-                        }).html('<a href="#' + $articleid + '"><img src="images/news/' + $image + '"><h2>' + $headline + '</h2><p>' + $text +'</p><p class="ui-li-aside">' + $articledate + '</p></a>'));
+                            'class': 'ui-icon-alt ui-icon-nodisc'
+                        }).html('<a href="#' + $articleid + '"><img src="images/news/' + $image + '"><h2>' + $headline + '</h2><p>' + $text +'</p><p class="ui-li-aside">' + $articledate + '</p></a><span class="arrow-right-news"></span>'));
     
 
                 console.log($articleid);
@@ -392,9 +391,8 @@ $(app.pagelist).each(function(i){
            
             $('[data-role="panel"] ul:not(#homeList)').append(
                         $('<li />', {
-                            'data-theme': 'c',
-                            'data-icon': 'arrow-r'
-                        }).html('<a href="#' + app.pageidlist[i] +'"><span class="icon-' + app.pageidlist[i] + '">' + this + '</span></a>'));
+                            'data-theme': 'c'
+                        }).html('<a href="#' + app.pageidlist[i] +'"><span class="icon-' + app.pageidlist[i] + '">&nbsp;' + this + '</span></a><span class="arrow-right"></span>'));
                
     });
         
@@ -465,7 +463,7 @@ $(app.pagelist).each(function(i){
 
 //////////////////Add interactive behaviour to menu & home button///////////////////////
     
-setTimeout(function(){
+/*setTimeout(function(){
     
     var $menu = $('#menuNav');
     
@@ -493,7 +491,7 @@ setTimeout(function(){
         }, 300);
     });
     
-}, 5000);
+}, 5000);*/
 
 
 
