@@ -28,27 +28,33 @@
     font-family: Helvetica Neue, Helveltica, Calibri, Arial, Verdana, sans-serif;
     font-weight: 200;
 }
-.home-image .home-display h3{
+.home-display h3, .home-display p{
+    text-shadow: none;
+    color: #fff;
+}
+.home-display h3{
     
     font-size: 2.5em;
     margin: 20px auto;
     font-weight: 100;
 }
-.home-image .home-display p{
+.home-display p{
     
     font-size:
     font-weight: 100;
 }
 
-.home-image{
-    background-image: url('../images/montage/mont_3.jpg');
+#home div.ui-panel-content-wrap-closed{
+    background-image: url('../images/montage/home_720.png');
     background-repeat: no-repeat;
-    background-size: 100%;
-    /*padding-left: 17px;
-    width: 200px;*/
-    height: 450px;
-    /*width: auto;
-    height: 250px;*/
+    background-size: 100% 100%;
+      
+}
+#home div.ui-panel-content-wrap-open{
+    background-image: url('../images/montage/home_720.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+      
 }
 .ui-header{
     height: 60px;   
@@ -85,7 +91,7 @@
 #menuNav img, #homeNav img{
     max-height: 1.5em;
     float: left;
-    margin: -.2em 2px;
+    margin: -.15em 2px;
     /*position: relative;*/
 }
 /* Over-ride listviews*/
@@ -95,6 +101,38 @@
 
 #homeList li, #newslist li, .ui-btn.ui-btn-icon-right.ui-li-has-arrow.ui-li.ui-btn-up-c {
     background: #fafafa;
+}
+.arrow-right, .arrow-right-news{
+    background-image: url('../images/arr_r.png');
+    background-repeat: no-repeat;
+    background-position: 0;
+    right: 5px;
+    position: absolute;
+}
+.arrow-right{
+    background-size: 8px;
+    top: 35%;
+    width: 15px;
+    height: 15px;
+}
+.arrow-right-news{
+    background-size: 12px;
+    top: 40%;
+    width: 25px;
+    height: 25px;
+}
+#listLeft li.ui-btn-active a.ui-link-inherit, #homeList li.ui-btn-active a.ui-link-inherit, #newslist li.ui-btn-active a.ui-link-inherit{
+    color: #fff;
+    text-shadow: none;
+    background: rgb(95,95,95);
+}
+#listLeft li.ui-btn-active, #homeList li.ui-btn-active, #newsList li.ui-btn-active{
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+#listLeft li.ui-btn-active span.arrow-right, #homeList li.ui-btn-active span.arrow-right, #newslist li.ui-btn-active span.arrow-right-news{
+    background-image: url('../images/arr_wr.png');
 }
 
 /*Change side-panel color*/
@@ -150,28 +188,10 @@
     background-position: 0 -187px;
 }
 
-.arrow-right, .arrow-right-news{
-    background-image: url('../images/arr_r.png');
-    background-repeat: no-repeat;
-    background-position: 0;
-    right: 5px;
-    position: absolute;
-}
-.arrow-right{
-    background-size: 8px;
-    top: 35%;
-    width: 15px;
-    height: 15px;
-}
-.arrow-right-news{
-    background-size: 12px;
-    top: 40%;
-    width: 25px;
-    height: 25px;
-}
+
 /*News Articles*/
 #newslist li div a{
-    margin-right: 30px;   
+    padding-right: 30px;   
 }
 
 /* Help Pages */
@@ -237,16 +257,16 @@
     text-align: center;
     background: #fafafa;
     background: rgba(255, 255, 255, .75);
-    /*-webkit-box-shadow: inset 0 0 1px rgba(0,0,0);
-    -moz-box-shadow: inset 0 0 1px rgb(0,0,0);
-    -ms-box-shadow: inset 0 0 1px rgb(0,0,0);
-    box-shadow: inset 0 0 1px rgb(0,0,0);*/
+    -webkit-box-shadow: inset 0 -1px 1px rgba(95,95,95,.8);
+    -moz-box-shadow: inset 0 -1px 1px rgb(0,0,0);
+    -ms-box-shadow: inset 0 -1px 1px rgb(0,0,0);
+    box-shadow: inset 0 -1px 1px rgba(95,95,95,.8);
 }
 #com div a span{
     font: .8em  Helvetica Neue, Helveltica, Calibri, Arial, Verdana, sans-serif;
     text-decoration: none;
     text-shadow: none;
-    margin: 8px 20px;
+    margin: 5px 16px;
 }
 #com div a img{
     margin: 10px 25% 0;
@@ -483,6 +503,9 @@ span .ui-icon .ui-icon-plus{
     height: 97%; 
     padding: 0; 
 }
+#maps div.ui-panel-content-wrap.ui-body-c.ui-panel-animate.ui-panel-content-wrap-position-left.ui-panel-content-wrap-display-reveal.ui-panel-content-wrap-open{
+    height: 97%;   
+}
 
 .app .ui-listview li .ui-btn p {
     color: #939393 !important;
@@ -499,6 +522,13 @@ span .ui-icon .ui-icon-plus{
 
 /* Second breakpoint is 45em (720px). */
 @media only screen and ( min-width: 45em ) {
+    
+    /*Homepage Image*/
+    
+    .home-image{
+    background-position: 0 -250px;
+    height: 800px;  
+    }
     
     .feature img, .static-image{
     max-width: 60%;
@@ -586,6 +616,13 @@ span .ui-icon .ui-icon-plus{
 
 /* third breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
 @media only screen and (min-width: 48em) {
+    
+    /*Homepage Image*/
+    
+    .home-image{
+    background-position: 0 -200px;
+    height: 900px;  
+    }
     
     /* Communications footer on homepage*/
     #com div.hide{
